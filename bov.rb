@@ -1,1 +1,0 @@
-cotacao = Cotacao.new("")
