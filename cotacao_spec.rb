@@ -17,6 +17,6 @@ describe Cotacao do
 
 	it "should return a list of every asset turned into attribute" do	
 		cotacao = Cotacao.new("DemoCotacoesHistoricas12022003.txt")
-		cotacao.pos_attributes.length.should be(482)
+		cotacao.pos_attributes.length.should be > 478
 	end
 end
