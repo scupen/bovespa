@@ -21,6 +21,6 @@ describe Bovespa::Historico do
 	end
 
 	it "should have valid specified fields" do
-#		cotaca
+		Bovespa::Historico.valid_specification?.should be true
 	end
 end

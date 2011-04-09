@@ -13,7 +13,7 @@ module Bovespa
 													"coddbi" => 10..11,
 													"tpmerc"=>24..26,
 													"nomres"=>27..38,
-													"especi"=>30..48,
+													"especi"=>39..48,
 													"prazot"=>49..51,
 													"modref"=>52..55,
 													"preabre"=>56..68,
@@ -29,7 +29,7 @@ module Bovespa
 													"preexe"=>188..200,
 													"indopc"=>201..201,
 													"datven"=>202..209, # AAAAMMDD
-													"fatcot"=>210..126,
+													"fatcot"=>210..216,
 													"ptoexe"=>217..229,
 													"codisi"=>230..241,
 													"dismes"=>242..244
