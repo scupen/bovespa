@@ -4,9 +4,9 @@ module Bovespa
 		attr_accessor :raw_attributes
 
 		def initialize(nome_do_ativo)
-			uri = URI.parse("http://www.bmfbovespa.com.br/cotacoes2000/formCotacoesMobile.asp?codsocemi=petr4")
+			uri = URI.parse("http://www.bmfbovespa.com.br/cotacoes2000/formCotacoesMobile.asp?codsocemi="+nome_do_ativo)
 			res = Net::HTTP.start(uri.host, uri.port) do |http|
-				http.get("/cotacoes2000/formCotacoesMobile.asp?codsocemi=petr4")
+				http.get("/cotacoes2000/formCotacoesMobile.asp?codsocemi="+nome_do_ativo)
 			end
 			xml = Nokogiri::XML(res.body)
 			raw_attr = {}
@@ -29,10 +29,10 @@ module Bovespa
 		end
 
 		def ibovespa?
-			if @raw_attributes['IBOVESPA'] = 'S'
-				true
+			if @raw_attributes['IBOVESPA'] == 'S'
+				return true
 			else
-				false
+				return false
 			end
 		end
 	end
