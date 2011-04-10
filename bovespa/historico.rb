@@ -38,7 +38,8 @@ module Bovespa
 		end
 	
 		lines_where(0..1,"99") do # trailer
-			set_specification("nome_do_arquivo_trailer"=>2..14,"codigo_de_origem_trailer"=>15..22,"data_de_geracao_do_arquivo_trailer"=>23..30,"total_de_registros"=>31..42)
+			set_specification("nome_do_arquivo_trailer"=>2..14,"codigo_de_origem_trailer"=>15..22,
+												"data_de_geracao_do_arquivo_trailer"=>23..30,"total_de_registros"=>31..42)
 		end
 
 	end
