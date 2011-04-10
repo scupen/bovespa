@@ -1,12 +1,12 @@
 require 'rspec'
-require 'bovespa'
+require '../lib/bovespa'
 
-class MyClass < Bovespa::Cotacao
+class MyClass2 < Bovespa::Cotacao
 end
 
-describe  MyClass do
+describe  MyClass2 do
 	it "deve retornar a atributos do papel PETR4" do
-		@ativo = MyClass.new("petr4")
+		@ativo = MyClass2.new("petr4")
 		@ativo.codigo.should eq "#PETR4"
 		@ativo.hora.class.should be String
 		@ativo.data.class.should be String
@@ -21,7 +21,7 @@ describe  MyClass do
 
 
 	it "deve retornar a atributos do papel TELB4" do
-		@ativo2 = MyClass.new("telb4")
+		@ativo2 = MyClass2.new("telb4")
 		@ativo2.codigo.should eq "TELB4"
 		@ativo2.hora.class.should be String
 		@ativo2.data.class.should be String

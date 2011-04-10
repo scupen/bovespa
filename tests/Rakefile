@@ -1,0 +1,9 @@
+require 'rake/testtask'
+
+task :default => [:rspec]
+
+desc "Run basic tasks using rspec"
+Rake::TestTask.new("rspec") do |t|
+	t.libs << ["../lib"]
+	t.test_files = FileList['*_spec.rb']
+end
