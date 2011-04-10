@@ -8,7 +8,8 @@ mGem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
 	s.authors = ["Marco Antonio Fogaça Nogueira"]
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.7")
-	s.add_dependency('nokogiri', '>= 1.4.4', 'posifile', '>=0.2.3')
+	s.add_dependency('nokogiri', '>= 1.4.4')
+	s.add_dependency('posifile', '>=0.2.3')
   s.email = ["marcofognog@gmail.com"]
   s.require_paths = ["lib"]
 end
