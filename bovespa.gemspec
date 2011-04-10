@@ -1,4 +1,4 @@
-mGem::Specification.new do |s|
+Gem::Specification.new do |s|
 	s.name = 'bovespa'
 	s.version = '0.5.4'
 	s.summary = 'Biblioteca Ruby para ler arquivos da Série Histórica da Bovespa e obter cotção direto na Bovespa.'
