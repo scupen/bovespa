@@ -1,5 +1,5 @@
 == BOVESPA
-É uma biblioteca ruby para lidar com a bolsa de valores Bovespa. Ela está dividade em duas class: 
+É uma biblioteca ruby para lidar com a bolsa de valores Bovespa. Ela está dividade em duas classes: 
 * Cotacao - Para obter a cotação de papéis pelo serviço gratuito da bolsa de valores (com deley de 15 min)
 * Historico - Para ler os arquivos de posição da Série Histórica da Bovespa.
 
@@ -15,17 +15,17 @@ Para usar, faça uma classe que herde de Bovespa::Cotacao. Ao instanciar, um obj
 
 Os seguintes atributos estarão disponíveis:
 
-**codigo 
-**delay
-**data
-**hora
-**oscilacao
-**valor_ultimo
-**ultimo_valor # mesma coisa que valor_ultimo
-**quant_neg
-**mercado
-**descricao
-**ibovespa? # retorna true se o papel está incluido o índice Ibov
+*codigo 
+*delay
+*data
+*hora
+*oscilacao
+*valor_ultimo
+*ultimo_valor # mesma coisa que valor_ultimo
+*quant_neg
+*mercado
+*descricao
+*ibovespa? # retorna true se o papel está incluido o índice Ibov
 
 ===Bovespa::Historico
 
