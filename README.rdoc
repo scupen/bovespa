@@ -1,0 +1,55 @@
+== BOVESPA
+É uma biblioteca ruby para lidar com a bolsa de valores Bovespa. Ela está dividade em duas class: 
+* Cotacao - Para obter a cotação de papéis pelo serviço gratuito da bolsa de valores (com deley de 15 min)
+* Historico - Para ler os arquivos de posição da Série Histórica da Bovespa.
+
+=== Bovespa::Cotacao
+Para usar, faça uma classe que herde de Bovespa::Cotacao. Ao instanciar, um objeto, ele automaticamente ganhará os atributos correspondentes ao papel. Veja o exemplo de uso.
+
+	class MinhaClasse < Bovespa::Cotacao
+	end
+
+	ativo = MinhaClasse.new("petr4")
+	ativo.codigo # => #PETR4
+	ativo.mercado # =>  VISTA
+
+Os seguintes atributos estarão disponíveis:
+
+**codigo 
+**delay
+**data
+**hora
+**oscilacao
+**valor_ultimo
+**ultimo_valor # mesma coisa que valor_ultimo
+**quant_neg
+**mercado
+**descricao
+**ibovespa? # retorna true se o papel está incluido o índice Ibov
+
+===Bovespa::Historico
+
+Para ler os arquivos de posição da Série Histórica, faça sua classe herdar de Bovespa::Historico, e acesse os valores de cada papel, como no exemplo. Cada arquivo representa um dia com informações obre todos os papéis.
+
+	class OutraClasse < Bovespa::Historico
+	end
+
+	dia = OutraClasse.new("DemoCotacoesHistoricas12022003.txt")
+	dia. vale5.class # => Hash
+	dia.vale5["codneg"]
+	dia.petr4["codneg"]
+	dia.petr4["preabre"]
+
+Para um lista com com todos , consulte o código:
+https://github.com/marcofognog/bovespa/blob/master/lib/bovespa/historico.rb
+
+E não deixe de ler o leiaute dos arquivos:
+http://www.bmfbovespa.com.br/pt-br/download/SeriesHistoricas_Layout.pdf
+
+Mais informações:
+http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp
+
+=== Sugestões
+Me mande mensagem no github ou twitter, qualquer proposta para melhoria/correaod e bugs será bem-vinda.
+github/marcofognog
+twitter/marcofognog
