@@ -28,7 +28,6 @@ Os seguintes atributos estarão disponíveis:
 * ibovespa? # retorna true se o papel está incluido o índice Ibov
 
 Mais info:
-
 http://marcofnogueira.wordpress.com/2010/12/01/cotacoes-das-acoes-na-bolsa-de-valores-com-ruby-e-sinatra-2/
 
 
@@ -58,4 +57,5 @@ http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfb
 Me mande mensagem no github ou twitter, qualquer proposta para melhoria/correaod e bugs será bem-vinda.
 
 github/marcofognog
+
 twitter/marcofognog
