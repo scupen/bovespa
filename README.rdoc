@@ -27,6 +27,11 @@ Os seguintes atributos estarão disponíveis:
 * descricao
 * ibovespa? # retorna true se o papel está incluido o índice Ibov
 
+Mais info:
+
+http://marcofnogueira.wordpress.com/2010/12/01/cotacoes-das-acoes-na-bolsa-de-valores-com-ruby-e-sinatra-2/
+
+
 ===Bovespa::Historico
 
 Para ler os arquivos de posição da Série Histórica, faça sua classe herdar de Bovespa::Historico, e acesse os valores de cada papel, como no exemplo. Cada arquivo representa um dia com informações obre todos os papéis.
@@ -51,5 +56,6 @@ http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfb
 
 === Sugestões
 Me mande mensagem no github ou twitter, qualquer proposta para melhoria/correaod e bugs será bem-vinda.
+
 github/marcofognog
 twitter/marcofognog
