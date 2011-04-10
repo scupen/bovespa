@@ -3,6 +3,8 @@
 * Cotacao - Para obter a cotação de papéis pelo serviço gratuito da bolsa de valores (com deley de 15 min)
 * Historico - Para ler os arquivos de posição da Série Histórica da Bovespa.
 
+Ainda não testado no Ruby 1.9
+
 === Bovespa::Cotacao
 Para usar, faça uma classe que herde de Bovespa::Cotacao. Ao instanciar, um objeto, ele automaticamente ganhará os atributos correspondentes ao papel. Veja o exemplo de uso.
 
