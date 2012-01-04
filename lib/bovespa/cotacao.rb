@@ -1,39 +1,48 @@
 module Bovespa
 	class Cotacao
 
-		attr_accessor :raw_attributes
+		def initialize(ativos = nil)
+			if ativos.kind_of?(String)
+				create_attributes(get_quotes([ativos]).first)
+			end
+		end
 
-		def initialize(nome_do_ativo)
-			uri = URI.parse("http://www.bmfbovespa.com.br/cotacoes2000/formCotacoesMobile.asp?codsocemi="+nome_do_ativo)
+		def get_quotes(ativos)
+
+			uri = URI.parse("http://www.bmfbovespa.com.br")
+
 			res = Net::HTTP.start(uri.host, uri.port) do |http|
-				http.get("/cotacoes2000/formCotacoesMobile.asp?codsocemi="+nome_do_ativo)
+				http.get("/Pregao-Online/ExecutaAcaoAjax.asp?CodigoPapel="+ativos.join('|'))
 			end
+
 			xml = Nokogiri::XML(res.body)
-			raw_attr = {}
-			xml.css("PAPEL").each do |node|
-						@raw_attributes = node
+
+			result = []
+
+			floats = [:ultimo, :abertura, :minimo, :maximo, :medio, :oscilacao]
+
+			xml.css("Papel").each do |node|
+				new_node = {}
+				node.each do |key, value|
+					new_node.merge!({key.downcase.to_sym => value}) if key.downcase.to_sym == :nome or key.downcase.to_sym == :codigo
+					new_node.merge!({key.downcase.to_sym => value.gsub(',','.').to_f}) if floats.include? key.downcase.to_sym
+					new_node.merge!({key.downcase.to_sym => DateTime.strptime(value, '%d/%m/%Y %H:%M:%S')}) if key.downcase.to_sym == :data
+					new_node.merge!({key.downcase.to_sym => false}) if key.downcase.to_sym == :ibovespa
+					new_node.merge!({key.downcase.to_sym => true}) if key.downcase.to_sym == :ibovespa and value == "#"
+				end
+				result << new_node
 			end
-			create_attributes
+
+			result
+
 		end
 
-		def create_attributes
-			attr_list = ["codigo", "delay", "data", "hora", "oscilacao", "valor_ultimo", "quant_neg", "mercado","descricao"]
-			attr_list.each do |method_name|
-				self.instance_eval("def #{method_name}; @raw_attributes['#{method_name.upcase}']; end")
+		def create_attributes(ativo)
+			@ativo = ativo
+			ativo.each do |key, value|
+				self.instance_eval("def #{key}; @ativo['#{key}'.to_sym]; end")
 			end
 		end
 
-	# more attributes
-		def ultimo_valor
-			valor_ultimo
-		end
-
-		def ibovespa?
-			if @raw_attributes['IBOVESPA'] == 'S'
-				return true
-			else
-				return false
-			end
-		end
 	end
 end

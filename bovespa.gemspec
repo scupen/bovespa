@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
 	s.name = 'bovespa'
-	s.version = '0.5.4'
+	s.version = '0.5.5'
 	s.summary = 'Biblioteca Ruby para ler arquivos da Série Histórica da Bovespa e obter cotção direto na Bovespa.'
 	s.description = 'Biblioteca Ruby para ler arquivos da Série Histórica da Bovespa e obter cotção direto na Bovespa usando o serviço gratuito.'
 	s.files = `git ls-files`.split("\n")
