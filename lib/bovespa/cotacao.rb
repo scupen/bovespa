@@ -26,7 +26,7 @@ module Bovespa
 				node.each do |key, value|
 					new_node.merge!({key.downcase.to_sym => value}) if key.downcase.to_sym == :nome or key.downcase.to_sym == :codigo
 					new_node.merge!({key.downcase.to_sym => value.gsub(',','.').to_f}) if floats.include? key.downcase.to_sym
-					new_node.merge!({key.downcase.to_sym => DateTime.strptime(value, '%d/%m/%Y %H:%M:%S')}) if key.downcase.to_sym == :data
+					new_node.merge!({key.downcase.to_sym => DateTime.strptime(value, (value.include?(' ') ? '%d/%m/%Y% H:%M:%S' : '%d/%m/%Y%H:%M:%S'))}) if key.downcase.to_sym == :data
 					new_node.merge!({key.downcase.to_sym => false}) if key.downcase.to_sym == :ibovespa
 					new_node.merge!({key.downcase.to_sym => true}) if key.downcase.to_sym == :ibovespa and value == "#"
 				end
